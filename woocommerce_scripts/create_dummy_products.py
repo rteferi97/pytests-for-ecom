@@ -30,7 +30,7 @@ except KeyError:
     raise Exception(f"The environment variables 'WOO_KEY' and 'WOO_SECRET' must be set. ")
 
 wcapi = API(
-    url="http://dev.bootcamp.store.supersqa.com/", #"http://localhost:8888/ecomtester",
+    url="http://localhost:8888/ecomtester", #"http://dev.bootcamp.store.supersqa.com/",
     consumer_key=woo_key,
     consumer_secret=woo_secret,
     version="wc/v3"
