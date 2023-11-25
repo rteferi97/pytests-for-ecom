@@ -3,6 +3,11 @@
 from demostore_automation.src.selenium_extended.SeleniumExtended import SeleniumExtended
 from demostore_automation.src.pages.locators.CartPageLocators import CartPageLocators
 from demostore_automation.src.configs.MainConfigs import MainConfigs
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 
 class CartPage(CartPageLocators):
@@ -17,6 +22,7 @@ class CartPage(CartPageLocators):
         base_url = MainConfigs.get_base_url()
         cart_url = base_url + self.endpoint
         self.driver.get(cart_url)
+
 
     def get_all_product_names_in_cart(self):
 
@@ -36,6 +42,10 @@ class CartPage(CartPageLocators):
     def apply_coupon(self, coupon_code):
         self.input_coupon(coupon_code)
         self.click_apply_coupon()
+
+    def get_displayed_error_message(self):
+        error_message = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, 'ul.woocommerce-error')))
+        return error_message
 
     def click_on_proceed_to_checkout(self):
         self.sl.wait_and_click(self.PROCEED_TO_CHECKOUT_BTN)
