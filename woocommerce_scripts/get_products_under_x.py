@@ -66,8 +66,20 @@ cheap_products = [
     if float(product['price']) < user_price
 ]
 
+
+
+
+
+# Construct the file path relative to the Jenkins workspace
+
+csv_file_path = os.path.join(os.environ['WORKSPACE'], "products_output.csv")
+# csv_file_path = "products_output.csv" #f"your_products_under_{str(user_price)}.csv"
+try:
+     workspace = os.environ['WORKSPACE']
+except KeyError:
+    raise Exception(f"The environment variable 'WORKSPACE' must be set. ")
+
 # Create a CSV file with the list of products
-csv_file_path = f"your_products_under_{str(user_price)}.csv"
 with open(csv_file_path, 'w', newline='', encoding='utf-8') as csv_file:
     csv_writer = csv.writer(csv_file)
 
