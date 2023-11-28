@@ -63,7 +63,7 @@ while True:
 cheap_products = [
     {"name": product['name'], "price": product['price']}
     for product in all_products
-    if float(product['price']) < user_price
+    if float(product['price']) < float(user_price)
 ]
 
 
