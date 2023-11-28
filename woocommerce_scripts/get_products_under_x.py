@@ -75,7 +75,7 @@ cheap_products = [
 csv_file_path = os.path.join(os.environ['WORKSPACE'], "products_output.csv")
 # csv_file_path = "products_output.csv" #f"your_products_under_{str(user_price)}.csv"
 try:
-     workspace = os.environ['WORKSPACE']
+    workspace = os.environ['WORKSPACE']
 except KeyError:
     raise Exception(f"The environment variable 'WORKSPACE' must be set. ")
 
