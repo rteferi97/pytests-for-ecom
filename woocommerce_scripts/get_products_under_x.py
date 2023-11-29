@@ -2,6 +2,9 @@
 script that will use the Woocoomerce API to
 get prices of all products and
 create a list of products that have prices less than $X.
+X is command line argument
+
+Example : python3 get_products_under_x.py 24 
 
 """
 
