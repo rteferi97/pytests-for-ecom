@@ -45,7 +45,7 @@ class CartPage(CartPageLocators):
 
     def get_displayed_error_message(self):
         error_message = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, 'ul.woocommerce-error')))
-        return error_message
+        return error_message.text
 
     def click_on_proceed_to_checkout(self):
         self.sl.wait_and_click(self.PROCEED_TO_CHECKOUT_BTN)

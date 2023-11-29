@@ -22,12 +22,11 @@ class TestExpiredCoupon:
         cart_page = CartPage(self.driver)
         header = Header(self.driver)
 
+        # Go to homepage
 
-
-        # Open browser & Go to homepage
-        logger.info("Opening Browser...")
         logger.info("Going to homepage...")
         home_page.go_to_home_page()
+
         # Add item to cart
         home_page.click_first_add_to_cart_button()
 
@@ -43,10 +42,9 @@ class TestExpiredCoupon:
         # it won't work if i write...
         # elif filter.upper() == 'EXPIRED_COUPON':
         # return "LB100"
-        breakpoint()
         # Verify the error message
         error_message = cart_page.get_displayed_error_message()
-        if error_message.text == 'This coupon has expired.':
+        if error_message == 'This coupon has expired.':
             assert "Success"# should i use 'assert' instead of 'return'?
         else:
             assert "failure"# should i use 'assert' instead of 'return'?

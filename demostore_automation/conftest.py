@@ -78,6 +78,8 @@ def init_driver(request):
 
     request.cls.driver = driver
 
+    logger.info("Opening Browser...")#peeeeep
+
     yield
 
     driver.quit()
