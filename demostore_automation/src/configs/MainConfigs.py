@@ -15,7 +15,7 @@ class MainConfigs:
     def get_coupon_code(filter):
 
         if filter.upper() == 'FREE_COUPON':
-            return "ssqa100"
+            return "LB100" #"ssqa100"
         elif filter.upper() == '50_OFF':
             return "JFOADIUFHADF"
         else:
